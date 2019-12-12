@@ -11,6 +11,11 @@
 # production
 /build
 
+# lint
+.eslintrc.js
+.prettierignore
+.prettierrc
+
 # misc
 .DS_Store
 .env.local
