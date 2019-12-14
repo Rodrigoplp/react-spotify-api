@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 function ArtistSearch() {
   let [token, setToken] = useState(null)
+  let [search, setSearch] = useState(null)
 
   useEffect(() => {
     const search = window.location.search
@@ -9,11 +10,19 @@ function ArtistSearch() {
     setToken(params.get('access_token'))
   }, [])
 
+  useEffect(() => {
+    console.log(search)
+  }, [search])
+
+  const handleChange = e => {
+    setSearch(e.currentTarget.value)
+  }
+
   return (
     <div className="artist-search">
       <h1>Artist search</h1>
 
-      <p>{token}</p>
+      <input placeholder='Search for an artist' onChange={handleChange} />
     </div>
   )
 }
