@@ -42,7 +42,6 @@ app.use(express.static(__dirname + '/public'))
    .use(cookieParser());
 
 app.get('/login', function(req, res) {
-  console.log('Login')
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
@@ -60,7 +59,6 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/callback', function(req, res) {
-
   // your application requests refresh and access tokens
   // after checking the state parameter
 
@@ -106,7 +104,7 @@ app.get('/callback', function(req, res) {
         });
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect('http://localhost:3000?' +
+        res.redirect('http://localhost:3000/artist-search?' +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token
@@ -122,7 +120,6 @@ app.get('/callback', function(req, res) {
 });
 
 app.get('/refresh_token', function(req, res) {
-
   // requesting access token from refresh token
   var refresh_token = req.query.refresh_token;
   var authOptions = {
