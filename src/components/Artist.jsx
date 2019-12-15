@@ -11,7 +11,7 @@ const star = (
   </svg>
 )
 
-function Artist({ props }) {
+function Artist({ props, callback }) {
   let [rate, setRate] = useState([])
 
   useEffect(() => {
@@ -23,8 +23,12 @@ function Artist({ props }) {
     setRate(stars)
   }, [props])
 
+  const openAlbums = () => {
+    callback(props.id)
+  }
+
   return (
-    <div className='artist'>
+    <div className='artist' onClick={openAlbums}>
       <div className='picture'>
         {props.images.length > 0 && (
           <img src={props.images[0].url} />
@@ -38,7 +42,13 @@ function Artist({ props }) {
         </div>
 
         <div className='rate'>
-          {rate}
+          <ul>
+            {rate.map((point, index) => (
+              <li key={index}>
+                {point}
+              </li>
+            ))}
+          </ul>
         </div>
 
       </div>

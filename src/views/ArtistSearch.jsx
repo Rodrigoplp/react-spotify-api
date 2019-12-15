@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import SpotifyWebApi from 'spotify-web-api-js'
 import Artist from '../components/Artist'
+import history from '../history.js'
 import './ArtistSearch.scss'
 
 const spotifyApi = new SpotifyWebApi()
 
-function ArtistSearch() {
+function ArtistSearch({ props }) {
   let [search, setSearch] = useState(null)
   let [artists, setArtists] = useState(null)
 
@@ -28,8 +29,18 @@ function ArtistSearch() {
     }
   }, [search])
 
+  useEffect(() => {
+    setSearch(props.searchTerm)
+  }, [props.searchTerm])
+
   const handleChange = e => {
     setSearch(e.currentTarget.value)
+    props.searchCb(e.currentTarget.value)
+  }
+
+  const albumsCallback = id => {
+    props.idCb(id)
+    history.push('/albums')
   }
 
   return (
@@ -43,7 +54,7 @@ function ArtistSearch() {
           <ul className='list'>
             {artists.map((artist, index) => (
               <li className='list-item' key={index}>
-                <Artist props={artist} />
+                <Artist props={artist} callback={albumsCallback} />
               </li>
             ))}
           </ul>

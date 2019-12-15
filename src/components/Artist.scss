@@ -2,6 +2,7 @@
   border: solid thin #b6b6b6;
   width: 12em;
   height: 16em;
+  cursor: pointer;
 
   .picture {
     border-bottom: solid thin #b6b6b6;
@@ -45,6 +46,10 @@
       padding-left: 1em;
       padding-bottom: 10px;
 
+      li {
+        margin: 0 1px;
+      }
+
       svg {
         height: 20px;
         width: 20px;
@@ -52,5 +57,4 @@
       }
     }
   }
-
 }
