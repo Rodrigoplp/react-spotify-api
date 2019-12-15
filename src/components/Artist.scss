@@ -1,0 +1,56 @@
+.artist {
+  border: solid thin #b6b6b6;
+  width: 12em;
+  height: 16em;
+
+  .picture {
+    border-bottom: solid thin #b6b6b6;
+    background: #d7d7d7;
+    height: 9em;
+    overflow: hidden;
+
+    img {
+      min-height: 9em;
+      max-width: 12em;
+    }
+  }
+
+  .details {
+    display: inline-table;
+    position: relative;
+    height: 7em;
+    width: 100%;
+    text-align: left;
+
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    p {
+      font-size: 0.7rem;
+      color: #787878;
+      margin-top: 0;
+    }
+
+    .text {
+      padding: 0 1em;
+    }
+
+    .rate {
+      position: absolute;
+      bottom: 0;
+      padding-left: 1em;
+      padding-bottom: 10px;
+
+      svg {
+        height: 20px;
+        width: 20px;
+        margin: auto;
+      }
+    }
+  }
+
+}
