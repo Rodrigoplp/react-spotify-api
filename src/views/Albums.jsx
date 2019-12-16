@@ -24,7 +24,7 @@ function Albums({ props }) {
   }
 
   return (
-    <div className='albums'>
+    <div className='spotify'>
       <h1>Albums</h1>
 
       {albums && (

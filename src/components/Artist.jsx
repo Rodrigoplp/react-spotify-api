@@ -15,7 +15,7 @@ function Artist({ props, callback }) {
 
   useEffect(() => {
     let stars = []
-    for (let i=0; i<Math.floor(props.popularity/20); i++) {
+    for (let i=0; i<Math.ceil(props.popularity/20); i++) {
       stars.push(star)
     }
 

@@ -23,7 +23,7 @@ function ArtistSearch({ props }) {
 
   // Search artists
   useEffect(() => {
-    if (search && search.length > 4) {
+    if (search && search.length > 2) {
       spotifyApi.searchArtists(search)
         .then(function(data) {
           setArtists(data.artists.items)
@@ -56,7 +56,7 @@ function ArtistSearch({ props }) {
   }
 
   return (
-    <div className="artist-search">
+    <div className="spotify">
       <h1>Artist search</h1>
 
       <input placeholder='Search for an artist' onChange={handleChange} />

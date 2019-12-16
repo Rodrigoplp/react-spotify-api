@@ -1,0 +1,67 @@
+.album {
+  border: solid thin #b6b6b6;
+  width: 12em;
+  height: 18.5em;
+  cursor: pointer;
+
+  .picture {
+    border-bottom: solid thin #b6b6b6;
+    background: #d7d7d7;
+    height: 9em;
+    overflow: hidden;
+
+    img {
+      min-height: 9em;
+      max-width: 12em;
+    }
+  }
+
+  .details {
+    display: inline-table;
+    position: relative;
+    height: 9.5em;
+    width: 100%;
+    text-align: left;
+
+    .title {
+      max-height: 44px;
+      overflow: hidden;
+
+      h2 {
+        font-size: 14pt;
+        margin: 0 0 3px 0;
+        font-weight: 500;
+        color: #444;
+      }
+    }
+
+    p {
+      font-size: 0.7rem;
+      color: #787878;
+      margin: 0;
+    }
+
+    .top {
+      padding: 10px;
+    }
+
+    .bottom {
+      padding: 10px;
+      position: absolute;
+      bottom: 25px;
+    }
+
+    button {
+      position: absolute;
+      bottom: 0;
+      height: 2.5em;
+      width: 100%;
+      color: #868686;
+      background: #f1f1f1;
+      font-weight: bold;
+      border: none;
+      border-top: solid thin #b6b6b6;
+      border-bottom: solid thin #b6b6b6;
+    }
+  }
+}
