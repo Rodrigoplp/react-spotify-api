@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import Star from './Star.jsx'
 import './Artist.scss'
 
 const star = (

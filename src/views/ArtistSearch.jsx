@@ -9,15 +9,19 @@ const spotifyApi = new SpotifyWebApi()
 function ArtistSearch({ props }) {
   let [search, setSearch] = useState(null)
   let [artists, setArtists] = useState(null)
+  let [token, setToken] = useState(null)
 
+  // Retrieve access token from url
   useEffect(() => {
     const search = window.location.search
     const params = new URLSearchParams(search)
     const token = params.get('access_token')
 
+    setToken(token)
     spotifyApi.setAccessToken(token)
   }, [])
 
+  // Search artists
   useEffect(() => {
     if (search && search.length > 4) {
       spotifyApi.searchArtists(search)
@@ -29,15 +33,23 @@ function ArtistSearch({ props }) {
     }
   }, [search])
 
+  // Load search term from props
   useEffect(() => {
     setSearch(props.searchTerm)
   }, [props.searchTerm])
 
+  // Save token in Router state
+  useEffect(() => {
+    props.tokenCb(token)
+  }, [props, token])
+
+  // Save search term
   const handleChange = e => {
     setSearch(e.currentTarget.value)
     props.searchCb(e.currentTarget.value)
   }
 
+  // Save artist id in Router state
   const albumsCallback = id => {
     props.idCb(id)
     history.push('/albums')

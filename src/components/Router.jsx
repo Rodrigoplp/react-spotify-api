@@ -12,7 +12,10 @@ history.listen(() => {
 export default function Router() {
   let [artistId, setArtistId] = useState(null)
   let [searchTerm, setSearchTerm] = useState(null)
+  let [spotifyToken, setSpotifyToken] = useState(null)
 
+  // Callbacks
+  
   let idCallback = id => {
     setArtistId(id)
   }
@@ -21,10 +24,22 @@ export default function Router() {
     setSearchTerm(term)
   }
 
+  let tokenCallback = token => {
+    setSpotifyToken(token)
+  }
+
+  // Objects to be passed as props
+  
   let artistProps = {
     idCb: idCallback,
     searchCb: termCallback,
+    tokenCb: tokenCallback,
     searchTerm: searchTerm
+  }
+
+  let albumProps = {
+    id: artistId,
+    token: spotifyToken
   }
 
   return (
@@ -32,7 +47,7 @@ export default function Router() {
       <Switch>
         <Route exact path='/' render={() => <Login />} />
         <Route exact path='/artist-search' render={() => <ArtistSearch props={artistProps} />} />
-        <Route exact path='/albums' render={() => <Albums props={artistId} />} />
+        <Route exact path='/albums' render={() => <Albums props={albumProps} />} />
       </Switch>
     </ReactRouter>
   )
