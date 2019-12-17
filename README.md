@@ -1,4 +1,94 @@
+# React Spotify API
+
+## App structure
+
+Single-page application written in ReactJS to harness the Spotify API.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The app uses React hooks to hold state and effects.
+
+Props are passed between components through the router, built with react-router-dom.
+
+```
+.
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── src
+│   ├── components
+│   │   ├── Album.jsx
+│   │   ├── Album.scss
+│   │   ├── Artist.jsx
+│   │   ├── Artist.scss
+│   │   └── Router.jsx
+│   ├── views
+│   │   ├── Albums.jsx
+│   │   ├── ArtistSearch.jsx
+│   │   ├── ArtistSearch.scss
+│   │   ├── Login.jsx
+│   │   └── Login.scss
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── history.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── serviceWorker.js
+│   └── setupTests.js
+├── README.md
+├── config.json
+├── package-lock.json
+├── package.json
+├── pbcopy
+└── server.js
+```
+
+
+4 directories, 31 files
+
+## Installation
+
+1. Setup a Spotify account and [register an application](https://developer.spotify.com/documentation/general/guides/app-settings/#register-your-app);
+
+2. Clone this repository;
+
+3. Create a file at the root called `config.json` containing 3 information: *client_id*, *client_secret* and *redirect_uri*. 
+
+This file is ignored in commits to the repository, and without it the app won't work.
+
+It should look like this:
+
+```json
+{
+  "client_id": "94cf43fb07ab3ds8a5c8891eadc461a1",
+  "client_secret": "4d6aeac027254230b773e41p353bbdc1",
+  "redirect_uri": "http://localhost:8888/callback"
+}
+```
+
+Use the *client_id* and *client_secret* from the app you created in your Spotify account.
+
+Keep the *redirect_api* as shown above.
+
+4. Install dependencies:
+
+	npm i
+
+5. Initiate the server:
+
+	node server.js
+
+6. Start the app:
+
+	npm start
+
+7. A browser should open with the app. If not, open one and navigate to http://localhost:3000.
 
 ## Available Scripts
 
@@ -37,32 +127,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

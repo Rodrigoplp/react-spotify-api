@@ -12,7 +12,7 @@ const request = require('request'); // "Request" library
 const cors = require('cors');
 const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
-const env = require('./config/config.json')
+const env = require('./config.json')
 
 const client_id = env.client_id
 const client_secret = env.client_secret
