@@ -1,10 +1,10 @@
 # React Spotify API
 
-## App structure
-
 Single-page application written in ReactJS to harness the Spotify API.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## App structure
 
 The app uses React hooks to hold state and effects.
 
@@ -49,9 +49,6 @@ Props are passed between components through the router, built with react-router-
 └── server.js
 ```
 
-
-4 directories, 31 files
-
 ## Installation
 
 1. Setup a Spotify account and [register an application](https://developer.spotify.com/documentation/general/guides/app-settings/#register-your-app);
@@ -78,15 +75,21 @@ Keep the *redirect_api* as shown above.
 
 4. Install dependencies:
 
-	npm i
+```sh
+npm i
+```
 
 5. Initiate the server:
 
-	node server.js
+```sh
+node server.js
+```
 
 6. Start the app:
 
-	npm start
+```sh
+npm start
+```
 
 7. A browser should open with the app. If not, open one and navigate to http://localhost:3000.
 
