@@ -6,6 +6,17 @@ import './ArtistSearch.scss'
 
 const spotifyApi = new SpotifyWebApi()
 
+const searchIcon = (
+  <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <title>Layer 2</title>
+      <circle fillOpacity="0" id="svg_2" r="14.22443" cy="15.72443" cx="15.72443" strokeWidth="3" stroke="#cccccc" fill="#000000"/>
+      <line stroke="#cccccc" id="svg_4" y2="30.20002" x2="29.72541" y1="26.64045" x1="26.16584" fillOpacity="0" strokeLinecap="null" strokeLinejoin="null" strokeDasharray="null" strokeWidth="3" fill="none"/>
+      <line id="svg_6" y2="29.96271" x2="29.72541" y1="40.64143" x1="40.87873" fillOpacity="0" strokeLinecap="null" strokeLinejoin="null" strokeDasharray="null" strokeWidth="6" stroke="#cccccc" fill="none"/>
+    </g>
+  </svg>
+)
+
 function ArtistSearch({ props }) {
   let [search, setSearch] = useState(null)
   let [artists, setArtists] = useState(null)
@@ -23,13 +34,16 @@ function ArtistSearch({ props }) {
 
   // Search artists
   useEffect(() => {
-    if (search && search.length > 2) {
+    if (search && search.length > 0) {
       spotifyApi.searchArtists(search)
         .then(function(data) {
           setArtists(data.artists.items)
         }, function(err) {
           console.error(err);
         })
+    }
+    else {
+      setArtists(null)
     }
   }, [search])
 
@@ -59,7 +73,10 @@ function ArtistSearch({ props }) {
     <div className="spotify">
       <h1>Artist search</h1>
 
-      <input placeholder='Search for an artist' onChange={handleChange} />
+      <div className='search-field'>
+        <input placeholder='Search for an artist...' onChange={handleChange} />
+        {searchIcon}
+      </div>
 
       {artists && (
         <div className='artists'>
