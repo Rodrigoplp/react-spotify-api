@@ -30,7 +30,7 @@ function Artist({ props, callback }) {
     <div className='artist' onClick={openAlbums}>
       <div className='picture'>
         {props.images.length > 0 && (
-          <img src={props.images[0].url} />
+          <img src={props.images[0].url} alt={props.name} />
         )}
       </div>
 

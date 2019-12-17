@@ -19,10 +19,6 @@ function Albums({ props }) {
       })
   }, [props])
 
-  const detailsCallback = id => {
-    console.log('Navigate to', id)
-  }
-
   return (
     <div className='spotify'>
       <h1>Albums</h1>
@@ -32,7 +28,7 @@ function Albums({ props }) {
           <ul className='list'>
             {albums.map((album, index) => (
               <li className='list-item' key={index}>
-                <Album props={album} callback={detailsCallback} />
+                <Album props={album} />
               </li>
             ))}
           </ul>
